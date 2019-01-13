@@ -2,7 +2,7 @@
 #                                                                              #
 #                    Lab 3 - Data Acquisition & Analysis                       #
 #                                                                              #
-#                     Your Name - Data Driven Securty                          #
+#                     Jonathan Quintana - Data Driven Securty                  #
 #                                                                              #
 #******************************************************************************#
 
