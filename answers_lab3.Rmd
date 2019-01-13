@@ -1,7 +1,7 @@
 ---
 title: "Answers Lab3"
-author: "You Name"
-date: "12/6/2018"
+author: "Jonathan Quintana"
+date: "13/01/2018"
 output: html_document
 ---
 
@@ -18,42 +18,58 @@ This is an R Markdown document including the solutions to the laboratory 3 for t
 Using the functions implemented in the file `code.R`.
 
 ```{r file_load, error=FALSE}
-# source("./code.R")
+source("./code.R")
 ```
 
 
 ### 1.1 Obtención de la página web
+Definición de la función para la obtención de la página web mediante el uso de la funcion read_html del package xml2:
 
-```{r get_title, include=FALSE}
+```{r get_title, echo=TRUE}
+html_code <- get_title("https://www.mediawiki.org/wiki/MediaWiki")
 
 ```
 
 
 ### 1.2 Analisis de el contenido de la web
 
-```{r web_content, include=FALSE}
-
+```{r web_content, echo=TRUE}
+title <- web_content(html_code)
+print(title)
 ```
 
 
 ### 1.3.	Extracción de enlaces 
 
 
-```{r get_links, include=FALSE}
+```{r get_links, echo=T}
+links <- get_links(GetParsed(html_code))
 
 ```
 
 
 ### 1.4 Exploración de enlaces
 
-```{r expl_links, include=FALSE}
-
+```{r expl_links, echo=T}
+status <- expl_links(links)
 ```
 
 ### Gráficos en R
 
 ### 2.1	Histograma
+```{r GetHist, echo=T}
+hist <- GetHist(links)
+hist
+```
 
 ### 2.2	Un gráfico de barras
+```{r GetBarPlot, echo=T}
+bar <- GetBarPlot(links)
+bar
+```
 
 ### 2.3 Pie Chart
+```{r, echo=T}
+ggplot(status, aes(x="", y="", fill=as.factor(status))) + geom_bar(width=1, stat="identity") + coord_polar("y", start=0)
+
+```
